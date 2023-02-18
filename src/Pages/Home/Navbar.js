@@ -44,6 +44,11 @@ const Navbar = () => {
               <li>
                 <Link to="/contactUs">Contact Us</Link>
               </li>
+              <li className="">
+                <h5 className="font-semibold hover:text-green-600">
+                  Job Seeker
+                </h5>
+              </li>
             </ul>
           </div>
           <Link className="btn btn-ghost normal-case text-xl">JobBaz@r</Link>
@@ -59,13 +64,12 @@ const Navbar = () => {
             <li>
               <Link to="/contactUs">Contact Us</Link>
             </li>
+            <li className="">
+              <h5 className="font-semibold hover:text-green-600">Job Seeker</h5>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <div href="" className="mr-60">
-            <input type="checkbox" className="toggle" />
-            Job Seeker
-          </div>
           {user?.uid ? (
             <>
               <button onClick={handleLogOut} className="btn">
