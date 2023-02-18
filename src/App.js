@@ -1,11 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
+import Home from "./Pages/Home/Home";
 
 function App() {
   return (
-    <div className="App">
-      <button className="btn">Button</button>
-      <button className="btn btn-primary">Button</button>
+    <div className="w-[90%] mx-auto">
+      <Home />
     </div>
   );
 }
