@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div>
-      <div className="navbar bg-base-100">
+    <div className="bg-green-100">
+      <div className="navbar w-[90%] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -27,37 +28,39 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Home</a>
+                <Link to="/home">Home</Link>
               </li>
               <li>
-                <a>About</a>
+                <Link to="/about">About</Link>
               </li>
               <li>
-                <a>Contact Us</a>
+                <Link to="/contactUs">Contact Us</Link>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">JobBaz@r</a>
+          <Link className="btn btn-ghost normal-case text-xl">JobBaz@r</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Home</a>
+              <Link to="/home">Home</Link>
             </li>
             <li>
-              <a>About</a>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <a>Contact Us</a>
+              <Link to="/contactUs">Contact Us</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a href="" className="mr-60">
+          <div href="" className="mr-60">
             <input type="checkbox" className="toggle" />
             Job Seeker
-          </a>
-          <a className="btn">Sign In</a>
+          </div>
+          <Link to="/login" className="btn">
+            Sign In
+          </Link>
         </div>
       </div>
     </div>

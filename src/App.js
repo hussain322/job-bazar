@@ -1,11 +1,13 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Home from "./Pages/Home/Home";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./Routes/Routes";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div className="w-[90%] mx-auto">
-      <Home />
+    <div>
+      <RouterProvider router={router}></RouterProvider>
+      <Toaster />
     </div>
   );
 }
