@@ -8,7 +8,7 @@ import { AuthContext } from "../../Contexts/AuthProvider";
 const Login = () => {
   const [error, setError] = useState("");
 
-  const { googleLogin } = useContext(AuthContext);
+  const { googleLogin, login } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
 
   const handleSubmit = (event) => {
@@ -17,6 +17,19 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    // Login
+    login(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("Successfully Login!");
+        form.reset();
+        setError("");
+      })
+      .catch((err) => {
+        setError(err.code.slice(5));
+      });
   };
 
   //google login
@@ -54,7 +67,7 @@ const Login = () => {
               className="input input-bordered"
             />
             <label className="label">
-              <p className="label-text-alt link link-hover text-white hover:text-green-700">
+              <p className="label-text-alt link link-hover hover:text-green-600">
                 Forgot password?
               </p>
             </label>
@@ -68,9 +81,9 @@ const Login = () => {
               Login
             </button>
           </div>
-          <div className="text-white pt-4">
+          <div className="pt-4">
             Doesn't have account yet?
-            <Link to="/signup" className="font-semibold ml-2">
+            <Link to="/signUp" className="font-semibold ml-2">
               Sign Up
             </Link>
           </div>

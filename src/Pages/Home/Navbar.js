@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Contexts/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="bg-green-100">
       <div className="navbar w-[90%] mx-auto">
@@ -58,9 +66,17 @@ const Navbar = () => {
             <input type="checkbox" className="toggle" />
             Job Seeker
           </div>
-          <Link to="/login" className="btn">
-            Sign In
-          </Link>
+          {user?.uid ? (
+            <>
+              <button onClick={handleLogOut} className="btn">
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/login" className="btn">
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
     </div>
